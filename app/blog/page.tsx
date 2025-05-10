@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   keywords:
     "Wadi Rum blog, desert travel, Jordan travel blog, Bedouin culture, desert photography, Wadi Rum travel tips, Wadi Rum Jeep tours",
   alternates: {
-    canonical: "https://wadirum-adventures.com/blog",
+    canonical: "https://wadirum.org/blog",
   },
 }
 

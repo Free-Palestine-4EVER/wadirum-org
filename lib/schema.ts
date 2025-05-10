@@ -23,7 +23,7 @@ export function generateLocalBusinessSchema(props: LocalBusinessSchemaProps = {}
   const defaultProps = {
     name: "Wadi Rum Adventures",
     description: "Experience the magic of Wadi Rum desert with our authentic Bedouin tours and camps.",
-    url: "https://wadirum-adventures.com",
+    url: "https://wadirum.org.com",
     telephone: "+962 7 9642 8848",
     address: {
       streetAddress: "Wadi Rum Village",
@@ -36,7 +36,7 @@ export function generateLocalBusinessSchema(props: LocalBusinessSchemaProps = {}
       latitude: 29.5833,
       longitude: 35.4167,
     },
-    image: "https://wadirum-adventures.com/images/wadi-rum-hero.jpg",
+    image: "https://wadirum.org/images/wadi-rum-hero.jpg",
     priceRange: "$$",
     openingHours: ["Mo-Su 00:00-23:59"],
   }
@@ -118,7 +118,7 @@ export function generateBlogPostSchema(props: {
       name: "Wadi Rum Adventures",
       logo: {
         "@type": "ImageObject",
-        url: "https://wadirum-adventures.com/images/logo.png",
+        url: "https://wadirum.org/images/logo.png",
       },
     },
   }
@@ -218,8 +218,8 @@ export function generateTouristAttractionSchema() {
     name: "Wadi Rum",
     description:
       "Explore the stunning desert landscape of Wadi Rum with our guided tours and authentic Bedouin experiences.",
-    url: "https://wadirum-adventures.com",
-    image: "https://wadirum-adventures.com/images/wadi-rum-hero.jpg",
+    url: "https://wadirum.org",
+    image: "https://wadirum.orgimages/wadi-rum-hero.jpg",
     isAccessibleForFree: false,
     touristType: ["Desert", "Nature", "Adventure"],
     address: {

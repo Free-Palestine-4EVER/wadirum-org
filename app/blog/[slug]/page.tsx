@@ -25,7 +25,7 @@ export function generateMetadata({ params }: BlogPostPageProps): Metadata {
     description: post.excerpt,
     keywords: `Wadi Rum, ${post.category}, ${post.title}, Jordan travel, desert adventure`,
     alternates: {
-      canonical: `https://wadirum-adventures.com/blog/${post.slug}`,
+      canonical: `https://wadirum.org/blog/${post.slug}`,
     },
   }
 }

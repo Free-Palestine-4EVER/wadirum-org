@@ -29,20 +29,22 @@ export const metadata: Metadata = {
   openGraph: {
     images: [
       {
-        url: "https://wadirum-adventures.com/images/traditional-camp.jpg",
+        url: "/images/traditional-camp.jpg", // Relative path works better for OG images
         width: 1200,
         height: 630,
         alt: "Mohammed Mutlak Camp - Traditional Bedouin Camp in Wadi Rum",
       },
     ],
     siteName: "Mohammed Mutlak Camp",
+    type: "website",
+    locale: "en_US",
   },
   twitter: {
     card: "summary_large_image",
     title: "Mohammed Mutlak Camp - Authentic Wadi Rum Desert Experiences",
     description:
       "Experience the magic of Wadi Rum with authentic Bedouin tours, jeep safaris, camping, and climbing adventures.",
-    images: ["https://wadirum-adventures.com/images/traditional-camp.jpg"],
+    images: ["/images/traditional-camp.jpg"], // Relative path works better for Twitter cards
     creator: "@MohammedMutlakCamp",
   },
 }
@@ -63,6 +65,11 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
         />
+        {/* Add explicit meta tags for Facebook */}
+        <meta property="og:image" content="/images/traditional-camp.jpg" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:image:alt" content="Mohammed Mutlak Camp - Traditional Bedouin Camp in Wadi Rum" />
       </head>
       <body className="min-h-screen bg-white font-sans antialiased">
         <SiteHeader />
