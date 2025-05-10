@@ -26,7 +26,25 @@ export const metadata: Metadata = {
       },
     ],
   },
-    generator: 'v0.dev'
+  openGraph: {
+    images: [
+      {
+        url: "https://wadirum-adventures.com/images/traditional-camp.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Mohammed Mutlak Camp - Traditional Bedouin Camp in Wadi Rum",
+      },
+    ],
+    siteName: "Mohammed Mutlak Camp",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Mohammed Mutlak Camp - Authentic Wadi Rum Desert Experiences",
+    description:
+      "Experience the magic of Wadi Rum with authentic Bedouin tours, jeep safaris, camping, and climbing adventures.",
+    images: ["https://wadirum-adventures.com/images/traditional-camp.jpg"],
+    creator: "@MohammedMutlakCamp",
+  },
 }
 
 export default function RootLayout({
