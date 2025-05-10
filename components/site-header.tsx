@@ -393,7 +393,7 @@ export function SiteHeader() {
           </NavigationMenuList>
         </NavigationMenu>
         <div className="flex items-center">
-          <Link href="/book-now">
+          <Link href="/contact-us">
             <Button className="bg-amber-500 hover:bg-amber-600">Book Now</Button>
           </Link>
         </div>
@@ -737,7 +737,7 @@ export function SiteHeader() {
               </Link>
 
               <div className="mt-4">
-                <Link href="/book-now" onClick={() => setMobileMenuOpen(false)}>
+                <Link href="/contact-us" onClick={() => setMobileMenuOpen(false)}>
                   <Button className="w-full bg-amber-500 hover:bg-amber-600">Book Now</Button>
                 </Link>
               </div>

@@ -199,7 +199,7 @@ export default function AboutUsPage() {
             heritage
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
-            <Link href="/book-now">
+            <Link href="/contact-us">
               <Button className="bg-white text-amber-500 hover:bg-gray-100 px-8 py-3 text-lg w-full sm:w-auto h-auto">
                 Book Now
               </Button>

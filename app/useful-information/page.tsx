@@ -466,7 +466,7 @@ export default function UsefulInformationPage() {
             <Link href="/desert-experiences">
               <Button className="bg-white text-amber-600 hover:bg-gray-100 px-6 py-3">Explore Our Tours</Button>
             </Link>
-            <Link href="/book-now">
+            <Link href="/contact-us">
               <Button className="bg-slate-800 hover:bg-slate-700 text-white px-6 py-3">Book Now</Button>
             </Link>
           </div>

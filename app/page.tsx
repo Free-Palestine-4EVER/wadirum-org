@@ -84,7 +84,7 @@ export default function Home() {
                 Explore Tours
               </Button>
             </Link>
-            <Link href="/book-now">
+            <Link href="/contact-us">
               <Button
                 size="lg"
                 className="bg-white text-amber-600 hover:bg-gray-100 font-bold transition-colors duration-300"
@@ -132,7 +132,7 @@ export default function Home() {
 
                 {/* 4. Button */}
                 <div>
-                  <Link href="/book-now">
+                  <Link href="/contact-us">
                     <Button
                       size="lg"
                       className="bg-amber-400 hover:bg-amber-500 text-black font-bold transition-colors duration-300"
@@ -155,7 +155,7 @@ export default function Home() {
                   expectations.
                 </p>
                 <div>
-                  <Link href="/book-now">
+                  <Link href="/contact-us">
                     <Button
                       size="lg"
                       className="bg-amber-400 hover:bg-amber-500 text-black font-bold transition-colors duration-300"

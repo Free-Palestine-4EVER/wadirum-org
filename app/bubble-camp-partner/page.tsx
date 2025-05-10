@@ -115,7 +115,7 @@ export default function BubbleCampPartnerPage() {
                 <div className="text-lg font-bold text-amber-600">Price: 120 JOD per Person</div>
                 <div className="text-sm text-gray-600">(Based on double occupancy)</div>
               </div>
-              <Link href="/book-now">
+              <Link href="/contact-us">
                 <Button className="w-full bg-amber-500 hover:bg-amber-600">Book Luxury Bubble</Button>
               </Link>
             </div>
@@ -191,7 +191,7 @@ export default function BubbleCampPartnerPage() {
                 <div className="text-lg font-bold text-amber-600">Price: 120 JOD per person</div>
                 <div className="text-sm text-gray-600">(Based on double occupancy)</div>
               </div>
-              <Link href="/book-now">
+              <Link href="/contact-us">
                 <Button className="w-full bg-amber-500 hover:bg-amber-600">Book Standard Bubble</Button>
               </Link>
             </div>

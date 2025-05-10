@@ -324,10 +324,6 @@ export default function ClassicAdventurePage() {
                 <ul className="space-y-2">
                   <li className="flex items-start">
                     <span className="text-red-600 mr-2">✗</span>
-                    <span>Transportation to/from Wadi Rum Village (can be arranged for additional fee)</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-red-600 mr-2">✗</span>
                     <span>Personal expenses and souvenirs</span>
                   </li>
                   <li className="flex items-start">
