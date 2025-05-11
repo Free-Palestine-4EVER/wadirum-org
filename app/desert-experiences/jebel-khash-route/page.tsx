@@ -2,14 +2,14 @@ import Image from "next/image"
 import type { Metadata } from "next"
 import { BookingForm } from "@/components/booking-form"
 import { FAQSection } from "@/components/faq-section"
-import { desertExperienceFaqs } from "@/data/desert-experience-faqs" // Fixed the import name (lowercase 'q')
+import { desertExperienceFaqs } from "@/data/desert-experience-faqs"
 import { TourCard } from "@/components/tour-card"
 import { ImageLightbox } from "@/components/image-lightbox"
 
 export const metadata: Metadata = {
   title: "Jebel Khash Route | Wadi Rum Desert Tours & Experiences",
   description:
-    "Explore the magnificent Jebel Khash Route in Wadi Rum with our expert Bedouin guides. Experience breathtaking views, ancient inscriptions, and unique rock formations on this unforgettable desert adventure.",
+    "Experience our combined half-day jeep tour and 3-hour Jebel Khash climb in Wadi Rum with expert Bedouin guides. Enjoy breathtaking views, ancient inscriptions, and unique rock formations.",
 }
 
 export default function JebelKhashRoutePage() {
@@ -27,9 +27,7 @@ export default function JebelKhashRoutePage() {
         <div className="absolute inset-0 bg-black/40" />
         <div className="absolute inset-0 flex flex-col items-center justify-center text-center text-white p-4">
           <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">Jebel Khash Route</h1>
-          <p className="text-lg md:text-xl max-w-3xl">
-            Discover the hidden treasures and breathtaking landscapes of Wadi Rum's Jebel Khash
-          </p>
+          <p className="text-lg md:text-xl max-w-3xl">Half-Day Jeep Tour + 3 Hours Jebel Khash Climbing Adventure</p>
         </div>
       </div>
 
@@ -40,10 +38,10 @@ export default function JebelKhashRoutePage() {
           <div className="lg:col-span-2">
             <h2 className="text-2xl md:text-3xl font-bold mb-6 text-amber-600">Tour Overview</h2>
             <p className="mb-6 text-gray-700">
-              The Jebel Khash Route offers one of the most spectacular hiking experiences in Wadi Rum. This lesser-known
-              trail takes you through diverse landscapes, from narrow canyons to expansive valleys, with breathtaking
-              views of the surrounding desert. The route is named after Jebel Khash, a distinctive mountain formation
-              that serves as a landmark for Bedouin travelers.
+              Our Jebel Khash Route combines the best of both worlds: a scenic half-day jeep tour through Wadi Rum's
+              spectacular landscapes, followed by an exhilarating 3-hour climb of Jebel Khash. This combined experience
+              allows you to see more of Wadi Rum's iconic sites while also enjoying the thrill and panoramic views of
+              climbing one of the region's distinctive mountain formations.
             </p>
 
             <div className="mb-8">
@@ -58,15 +56,17 @@ export default function JebelKhashRoutePage() {
 
             <h3 className="text-xl font-bold mb-4 text-amber-600">What to Expect</h3>
             <p className="mb-6 text-gray-700">
-              Our experienced Bedouin guides will lead you through this remarkable journey, sharing their knowledge of
-              the area's geology, history, and cultural significance. You'll discover ancient rock inscriptions, hidden
-              springs, and unique rock formations that tell the story of this ancient land.
+              During the jeep tour portion, you'll visit several of Wadi Rum's iconic sites, including ancient rock
+              inscriptions, natural arches, and vast open valleys. After exploring by vehicle, we'll arrive at the base
+              of Jebel Khash where our experienced Bedouin guides will lead you on a 3-hour climbing adventure to the
+              summit. From the top, you'll enjoy breathtaking panoramic views of the surrounding desert landscape that
+              few visitors get to experience.
             </p>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
               <ImageLightbox
                 src="/images/hiking-trekking.jpg"
-                alt="Hiking through the canyons of Jebel Khash"
+                alt="Climbing the rocky slopes of Jebel Khash"
                 width={400}
                 height={300}
                 className="rounded-lg w-full h-64 object-cover"
@@ -82,10 +82,11 @@ export default function JebelKhashRoutePage() {
 
             <h3 className="text-xl font-bold mb-4 text-amber-600">Highlights</h3>
             <ul className="list-disc pl-6 mb-8 text-gray-700 space-y-2">
-              <li>Trek through diverse desert landscapes with stunning panoramic views</li>
-              <li>Discover ancient Nabataean and Thamudic inscriptions</li>
-              <li>Explore narrow canyons and hidden water sources</li>
-              <li>Learn about Bedouin navigation techniques and desert survival</li>
+              <li>Explore Wadi Rum's iconic sites by 4x4 jeep with an experienced Bedouin guide</li>
+              <li>Visit ancient Nabataean and Thamudic inscriptions</li>
+              <li>Experience a guided 3-hour climb of Jebel Khash</li>
+              <li>Enjoy spectacular panoramic views from the summit</li>
+              <li>Learn about Bedouin culture, navigation techniques, and desert survival</li>
               <li>Enjoy a traditional Bedouin tea break in a scenic location</li>
               <li>Photograph unique rock formations and natural arches</li>
             </ul>
@@ -93,43 +94,70 @@ export default function JebelKhashRoutePage() {
             <h3 className="text-xl font-bold mb-4 text-amber-600">Itinerary</h3>
             <div className="mb-8">
               <div className="border-l-4 border-amber-500 pl-4 mb-6">
-                <h4 className="font-bold mb-2">Morning Departure</h4>
+                <h4 className="font-bold mb-2">Morning Departure (9:00 AM)</h4>
                 <p className="text-gray-700">
-                  We'll start from Rum Village and drive to the starting point of our trek. After a brief orientation,
-                  we'll begin our journey through the desert landscape.
+                  We'll start from Rum Village and begin our jeep tour through the desert landscape, visiting key sites
+                  including Lawrence's Spring, Khazali Canyon, and the Small Arch.
                 </p>
               </div>
               <div className="border-l-4 border-amber-500 pl-4 mb-6">
-                <h4 className="font-bold mb-2">Canyon Exploration</h4>
+                <h4 className="font-bold mb-2">Jeep Tour Exploration (9:00 AM - 12:00 PM)</h4>
                 <p className="text-gray-700">
-                  Our route takes us through narrow canyons with towering sandstone walls, where you'll see ancient
-                  inscriptions and unique geological formations.
+                  Our 4x4 jeep will take you through narrow canyons with towering sandstone walls, where you'll see
+                  ancient inscriptions and unique geological formations. We'll stop at several viewpoints for photos and
+                  enjoy a traditional Bedouin tea break.
                 </p>
               </div>
               <div className="border-l-4 border-amber-500 pl-4 mb-6">
-                <h4 className="font-bold mb-2">Lunch Break</h4>
+                <h4 className="font-bold mb-2">Lunch Break (12:00 PM - 1:00 PM)</h4>
                 <p className="text-gray-700">
-                  Enjoy a delicious lunch in the shade of a natural rock shelter, with panoramic views of the
-                  surrounding mountains.
+                  Enjoy a delicious lunch in the shade near the base of Jebel Khash, with views of the surrounding
+                  mountains. Your guide will provide information about the upcoming climb.
                 </p>
               </div>
               <div className="border-l-4 border-amber-500 pl-4">
-                <h4 className="font-bold mb-2">Afternoon Trek</h4>
+                <h4 className="font-bold mb-2">Jebel Khash Climb (1:00 PM - 4:00 PM)</h4>
                 <p className="text-gray-700">
-                  Continue through varied terrain, reaching viewpoints that offer spectacular vistas of Wadi Rum's
-                  landscape before returning to our starting point.
+                  The highlight of the day is a 3-hour guided climb of Jebel Khash. The climb involves some moderate
+                  scrambling but is suitable for those with reasonable fitness. At the summit, you'll be rewarded with
+                  spectacular 360-degree views of Wadi Rum before descending and returning to Rum Village.
                 </p>
               </div>
             </div>
 
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
+              <ImageLightbox
+                src="/images/wadi-rum-adventure.jpg"
+                alt="Desert landscape along the Jebel Khash Route"
+                width={300}
+                height={200}
+                className="rounded-lg w-full h-48 object-cover"
+              />
+              <ImageLightbox
+                src="/images/beduin-way.jpg"
+                alt="Bedouin guide leading the way through Jebel Khash"
+                width={300}
+                height={200}
+                className="rounded-lg w-full h-48 object-cover"
+              />
+              <ImageLightbox
+                src="/images/jebel-um-addami.jpg"
+                alt="Mountain views from the Jebel Khash Route"
+                width={300}
+                height={200}
+                className="rounded-lg w-full h-48 object-cover"
+              />
+            </div>
+
             <h3 className="text-xl font-bold mb-4 text-amber-600">What to Bring</h3>
             <ul className="list-disc pl-6 mb-8 text-gray-700 space-y-2">
-              <li>Comfortable hiking shoes with good grip</li>
+              <li>Comfortable hiking shoes with good grip (essential for the climb)</li>
               <li>Sun protection (hat, sunglasses, sunscreen)</li>
               <li>Light, breathable clothing (plus a layer for cooler seasons)</li>
               <li>Water bottle (we provide additional water)</li>
               <li>Camera for capturing the spectacular views</li>
               <li>Small backpack for personal items</li>
+              <li>Light snacks if desired (lunch is provided)</li>
             </ul>
 
             <div className="bg-amber-50 p-6 rounded-lg mb-8">
@@ -137,26 +165,26 @@ export default function JebelKhashRoutePage() {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
                   <p className="font-semibold mb-1">Duration:</p>
-                  <p className="text-gray-700 mb-4">6-7 hours</p>
+                  <p className="text-gray-700 mb-4">7 hours (4-hour jeep tour + 3-hour climb)</p>
 
                   <p className="font-semibold mb-1">Difficulty:</p>
-                  <p className="text-gray-700 mb-4">Moderate (requires reasonable fitness)</p>
+                  <p className="text-gray-700 mb-4">Moderate (requires reasonable fitness for the climb)</p>
 
                   <p className="font-semibold mb-1">Group Size:</p>
-                  <p className="text-gray-700 mb-4">2-8 people</p>
+                  <p className="text-gray-700 mb-4">1-6 persons</p>
                 </div>
                 <div>
                   <p className="font-semibold mb-1">Price:</p>
                   <p className="text-gray-700 mb-4">
-                    140 JOD for 1 person
+                    140 JOD per person for 1 person
                     <br />
                     90 JOD per person for 2-3 persons
                     <br />
-                    80 JOD per person for 4+ persons
+                    80 JOD per person for 4-6 persons
                   </p>
 
                   <p className="font-semibold mb-1">Includes:</p>
-                  <p className="text-gray-700 mb-4">Guide, transportation, lunch, water, tea</p>
+                  <p className="text-gray-700 mb-4">Guide, 4x4 jeep transportation, lunch, water, tea</p>
 
                   <p className="font-semibold mb-1">Languages:</p>
                   <p className="text-gray-700">English, Arabic</p>
@@ -201,11 +229,11 @@ export default function JebelKhashRoutePage() {
               image="/images/rock-climbing.jpg"
             />
             <TourCard
-              title="Trekking Adventure"
-              slug="trekking"
-              description="Discover Wadi Rum on foot with our guided trekking tours through the desert landscape."
-              price={65}
-              duration="6-8 hours"
+              title="Jebel Khash 2-Day Adventure"
+              slug="jebel-khash-2"
+              description="Experience a comprehensive 2-day adventure exploring and climbing Jebel Khash with overnight camping."
+              price={100}
+              duration="2 days"
               image="/images/hiking-trekking.jpg"
             />
           </div>
