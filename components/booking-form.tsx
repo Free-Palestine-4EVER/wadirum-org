@@ -40,6 +40,8 @@ interface PackageOption {
   name: string
   price: number
   description: string
+  duration: string
+  includes: string[]
 }
 
 interface FormData {
@@ -61,17 +63,107 @@ const accommodationOptions: AccommodationOption[] = [
   { id: "normal-bubble", name: "Normal Bubble Camp", price: 80, description: "Per person" },
 ]
 
-// Define package options
+// Define package options with more details
 const packageOptions: PackageOption[] = [
-  { id: "classic-adventure", name: "Classic Adventure Package (2 Days)", price: 120, description: "Per person" },
-  { id: "desert-explorer", name: "Desert Explorer Package (2 Days)", price: 135, description: "Per person" },
-  { id: "bedouin-experience", name: "Bedouin Experience Package (2 Days)", price: 150, description: "Per person" },
-  { id: "wadi-rum-discovery", name: "Wadi Rum Discovery Package (3 Days)", price: 200, description: "Per person" },
-  { id: "ultimate-adventure", name: "Ultimate Adventure Package (3 Days)", price: 230, description: "Per person" },
-  { id: "jordan-heights", name: "Jordan Heights Package (3 Days)", price: 250, description: "Per person" },
+  {
+    id: "classic-adventure",
+    name: "Classic Adventure Package (2 Days)",
+    price: 120,
+    description: "Per person",
+    duration: "2 days, 1 night",
+    includes: [
+      "Full-day jeep tour",
+      "Half-day hiking adventure",
+      "Accommodation at tented camp",
+      "All meals (2 breakfasts, 1 lunch, 1 dinner)",
+      "English-speaking Bedouin guide",
+      "Transportation within Wadi Rum",
+    ],
+  },
+  {
+    id: "desert-explorer",
+    name: "Desert Explorer Package (2 Days)",
+    price: 135,
+    description: "Per person",
+    duration: "2 days, 1 night",
+    includes: [
+      "Half-day jeep tour",
+      "Camel ride at sunset",
+      "Guided hiking experience",
+      "Accommodation at tented camp",
+      "All meals (2 breakfasts, 1 lunch, 1 dinner)",
+      "English-speaking Bedouin guide",
+      "Transportation within Wadi Rum",
+    ],
+  },
+  {
+    id: "bedouin-experience",
+    name: "Bedouin Experience Package (2 Days)",
+    price: 150,
+    description: "Per person",
+    duration: "2 days, 1 night",
+    includes: [
+      "Traditional Bedouin activities",
+      "Cooking class with local ingredients",
+      "Tea ceremony and cultural discussions",
+      "Accommodation at tented camp",
+      "All meals (2 breakfasts, 1 lunch, 1 dinner)",
+      "English-speaking Bedouin guide",
+      "Transportation within Wadi Rum",
+    ],
+  },
+  {
+    id: "wadi-rum-discovery",
+    name: "Wadi Rum Discovery Package (3 Days)",
+    price: 200,
+    description: "Per person",
+    duration: "3 days, 2 nights",
+    includes: [
+      "Full-day jeep tour",
+      "Guided hiking to scenic viewpoints",
+      "Camel ride experience",
+      "Stargazing session",
+      "Accommodation at tented camp (2 nights)",
+      "All meals (3 breakfasts, 2 lunches, 2 dinners)",
+      "English-speaking Bedouin guide",
+      "Transportation within Wadi Rum",
+    ],
+  },
+  {
+    id: "ultimate-adventure",
+    name: "Ultimate Adventure Package (3 Days)",
+    price: 230,
+    description: "Per person",
+    duration: "3 days, 2 nights",
+    includes: [
+      "Jebel Um Addami climbing expedition",
+      "Remote desert exploration",
+      "Overnight bivouac camping experience",
+      "One night at tented camp",
+      "All meals (3 breakfasts, 3 lunches, 2 dinners)",
+      "English-speaking Bedouin guide",
+      "Transportation within Wadi Rum",
+    ],
+  },
+  {
+    id: "jordan-heights",
+    name: "Jordan Heights Package (3 Days)",
+    price: 250,
+    description: "Per person",
+    duration: "3 days, 2 nights",
+    includes: [
+      "Um Addami climbing (Day 1)",
+      "Um Fruth Bridge and Burdah Rock climbing (Day 2)",
+      "Various rock formations exploration (Day 3)",
+      "Accommodation at tented camp (2 nights)",
+      "All meals (3 breakfasts, 3 lunches, 2 dinners)",
+      "English-speaking Bedouin guide",
+      "Transportation within Wadi Rum",
+    ],
+  },
 ]
 
-// Update the tourOptions array with the new prices and add 7+ persons tier
+// Update the tourOptions array to ensure all options have a 7-100 people tier with the same price as 4-6 people
 const tourOptions: TourOption[] = [
   {
     id: "half-day-jeep",
@@ -108,6 +200,7 @@ const tourOptions: TourOption[] = [
       { minPeople: 1, maxPeople: 1, price: 140 },
       { minPeople: 2, maxPeople: 3, price: 90 },
       { minPeople: 4, maxPeople: 6, price: 80 },
+      { minPeople: 7, maxPeople: 100, price: 80 }, // Same price as 4-6 persons
     ],
   },
   {
@@ -117,6 +210,7 @@ const tourOptions: TourOption[] = [
       { minPeople: 1, maxPeople: 1, price: 180 },
       { minPeople: 2, maxPeople: 3, price: 120 },
       { minPeople: 4, maxPeople: 6, price: 100 },
+      { minPeople: 7, maxPeople: 100, price: 100 }, // Same price as 4-6 persons
     ],
   },
   {
@@ -226,6 +320,8 @@ interface BookingFormProps {
 }
 
 export function BookingForm({ tourName, packageName }: BookingFormProps) {
+  const today = new Date()
+
   const [formData, setFormData] = useState<FormData>({
     name: "",
     email: "",
@@ -339,6 +435,10 @@ export function BookingForm({ tourName, packageName }: BookingFormProps) {
   // Update the handleSubmit function to handle email errors gracefully
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
+
+    // Get package details if a package is selected
+    const selectedPackage = formData.package ? packageOptions.find((p) => p.id === formData.package) : null
+
     // Prepare the data to send
     const bookingData = {
       ...formData,
@@ -346,7 +446,14 @@ export function BookingForm({ tourName, packageName }: BookingFormProps) {
         const tour = tourOptions.find((option) => option.id === tourId)
         return tour ? tour.name : tourId
       }),
-      package: formData.package ? packageOptions.find((option) => option.id === formData.package)?.name || "" : "",
+      packageDetails: selectedPackage
+        ? {
+            name: selectedPackage.name,
+            price: selectedPackage.price,
+            duration: selectedPackage.duration,
+            includes: selectedPackage.includes,
+          }
+        : null,
       totalPrice,
     }
 
@@ -459,6 +566,7 @@ export function BookingForm({ tourName, packageName }: BookingFormProps) {
                   mode="single"
                   selected={formData.date || undefined}
                   onSelect={handleDateSelect}
+                  disabled={(date) => date < today}
                   initialFocus
                 />
               </PopoverContent>
@@ -506,6 +614,35 @@ export function BookingForm({ tourName, packageName }: BookingFormProps) {
             Selecting a package will replace individual tour selections. Packages include accommodation.
           </p>
         </div>
+
+        {formData.package && formData.package !== "no-package" && (
+          <div className="bg-amber-50 p-4 rounded-md mt-2">
+            <h4 className="font-medium mb-2">Package Details</h4>
+            {(() => {
+              const pkg = packageOptions.find((p) => p.id === formData.package)
+              if (!pkg) return null
+
+              return (
+                <div className="space-y-2">
+                  <p>
+                    <span className="font-medium">Duration:</span> {pkg.duration}
+                  </p>
+                  <p>
+                    <span className="font-medium">Price:</span> {pkg.price} JOD per person
+                  </p>
+                  <p className="font-medium">Includes:</p>
+                  <ul className="list-disc pl-5 space-y-1">
+                    {pkg.includes.map((item, index) => (
+                      <li key={index} className="text-sm">
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )
+            })()}
+          </div>
+        )}
       </div>
 
       {!formData.package && (
@@ -666,7 +803,7 @@ export function BookingForm({ tourName, packageName }: BookingFormProps) {
         <div className="bg-amber-50 p-4 rounded-lg">
           <h3 className="text-xl font-semibold mb-4">Booking Summary</h3>
 
-          {formData.package && (
+          {formData.package && formData.package !== "no-package" && (
             <div className="flex justify-between mb-2">
               <span>{packageOptions.find((p) => p.id === formData.package)?.name || "Selected Package"}:</span>
               <span className="font-medium">

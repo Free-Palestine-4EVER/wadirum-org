@@ -50,7 +50,7 @@ export async function sendBookingEmail(formData: any) {
 
     // Format the booking details for the email
     const formatBookingDetails = (data: any) => {
-      const { name, email, phone, date, numPeople, accommodation, tours, totalPrice, message } = data
+      const { name, email, phone, date, numPeople, accommodation, tours, totalPrice, message, packageDetails } = data
 
       // Format the date
       const formattedDate = date
@@ -67,15 +67,32 @@ export async function sendBookingEmail(formData: any) {
         ? tours.map((tour: string) => `- ${tour}`).join("\n")
         : "None selected"
 
+      // Format package details if available
+      let packageSection = ""
+      if (packageDetails) {
+        const includesList = packageDetails.includes.map((item: string) => `  - ${item}`).join("\n")
+        packageSection = `
+Selected Package: ${packageDetails.name}
+Package Price: ${packageDetails.price} JOD per person
+Package Duration: ${packageDetails.duration}
+Package Includes:
+${includesList}
+`
+      }
+
       return `
 Name: ${name}
 Email: ${email}
 Phone: ${phone}
 Arrival Date: ${formattedDate}
 Number of People: ${numPeople}
-Accommodation: ${accommodation || "None selected"}
+${
+  packageDetails
+    ? packageSection
+    : `Accommodation: ${accommodation || "None selected"}
 Tours:
-${formattedTours}
+${formattedTours}`
+}
 
 Total Price: ${totalPrice} JOD
 

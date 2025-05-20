@@ -38,7 +38,7 @@ interface FormData {
   message: string
 }
 
-// Update the tourOptions array with the new prices and add 7+ persons tier
+// Update the tourOptions array to ensure all options have a 7-100 people tier with the same price as 4-6 people
 const tourOptions: TourOption[] = [
   {
     id: "half-day-jeep",
@@ -75,6 +75,7 @@ const tourOptions: TourOption[] = [
       { minPeople: 1, maxPeople: 1, price: 140 },
       { minPeople: 2, maxPeople: 3, price: 90 },
       { minPeople: 4, maxPeople: 6, price: 80 },
+      { minPeople: 7, maxPeople: 100, price: 80 }, // Same price as 4-6 persons
     ],
   },
   {
@@ -84,6 +85,7 @@ const tourOptions: TourOption[] = [
       { minPeople: 1, maxPeople: 1, price: 180 },
       { minPeople: 2, maxPeople: 3, price: 120 },
       { minPeople: 4, maxPeople: 6, price: 100 },
+      { minPeople: 7, maxPeople: 100, price: 100 }, // Same price as 4-6 persons
     ],
   },
   {
@@ -188,6 +190,8 @@ const calculateStargazingPrice = (numPeople: number): number => {
 }
 
 export function BivouacBookingForm() {
+  const today = new Date()
+
   const [formData, setFormData] = useState<FormData>({
     name: "",
     email: "",
@@ -263,6 +267,11 @@ export function BivouacBookingForm() {
       }),
       accommodation: "Bivouac Camping",
       totalPrice,
+      bivouacDetails: {
+        numDays: formData.numDays,
+        pricePerDay: 45,
+        totalBivouacPrice: 45 * formData.numPeople * formData.numDays,
+      },
     }
 
     // Send the email
@@ -373,6 +382,7 @@ export function BivouacBookingForm() {
                   mode="single"
                   selected={formData.date || undefined}
                   onSelect={handleDateSelect}
+                  disabled={(date) => date < today}
                   initialFocus
                 />
               </PopoverContent>
